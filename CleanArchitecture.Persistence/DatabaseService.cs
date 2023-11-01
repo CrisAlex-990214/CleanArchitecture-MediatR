@@ -5,6 +5,6 @@ namespace CleanArchitecture.Persistence
 {
     public class DatabaseService : IDatabaseService
     {
-        public List<User> GetUsers() => new() { new() { Id = 1, Name = "User name" } };
+        public User GetUser(int id) => new() { Id = id, Name = "Mary" };
     }
 }

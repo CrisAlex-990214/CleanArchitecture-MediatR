@@ -4,6 +4,6 @@ namespace CleanArchitecture.Application.Interfaces
 {
     public interface IDatabaseService
     {
-        List<User> GetUsers();
+        User GetUser(int id);
     }
 }

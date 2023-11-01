@@ -1,5 +1,5 @@
-using CleanArchitecture.Application.Interfaces;
-using CleanArchitecture.Domain.Entities;
+using CleanArchitecture.Application;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArchitecture.API.Controllers
@@ -8,7 +8,14 @@ namespace CleanArchitecture.API.Controllers
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
+        private readonly IMediator mediator;
+
+        public UserController(IMediator mediator)
+        {
+            this.mediator = mediator;
+        }
+
         [HttpGet]
-        public List<User> Get(IDatabaseService databaseService) => databaseService.GetUsers();
+        public IActionResult Get(int id) => Ok(mediator.Send(new GetUserRequest { Id = id }));
     }
 }

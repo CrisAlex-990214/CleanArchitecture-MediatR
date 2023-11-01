@@ -1,3 +1,4 @@
+using CleanArchitecture.Application;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Persistence;
 
@@ -11,6 +12,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IDatabaseService, DatabaseService>();
+
+builder.Services.AddApplicationServices();
 
 var app = builder.Build();
 
